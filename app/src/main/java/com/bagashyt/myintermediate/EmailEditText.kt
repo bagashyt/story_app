@@ -20,7 +20,7 @@ class EmailEditText : AppCompatEditText {
     }
 
     constructor(context: Context, attrs: AttributeSet) : super(context, attrs) {
-
+        init()
     }
 
     constructor(context: Context, attrs: AttributeSet, defStyleAttr: Int) : super(
@@ -35,10 +35,10 @@ class EmailEditText : AppCompatEditText {
         emailIconDrawable =
             ContextCompat.getDrawable(context, R.drawable.ic_email) as Drawable
         inputType = InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS
-        compoundDrawablePadding = 5
+        compoundDrawablePadding = 16
 
-        setDrawable(emailIconDrawable)
-        hint = "Email"
+        setDrawable(start = emailIconDrawable)
+        hint = context.getString(R.string.email)
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             setAutofillHints(AUTOFILL_HINT_EMAIL_ADDRESS)
         }
@@ -49,7 +49,7 @@ class EmailEditText : AppCompatEditText {
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 if (!s.isNullOrEmpty() && !Patterns.EMAIL_ADDRESS.matcher(s).matches())
-                    error = "Email address is not valid"
+                    error = context.getString(R.string.email_error)
             }
 
             override fun afterTextChanged(p0: Editable?) {
