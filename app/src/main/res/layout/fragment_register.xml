@@ -4,7 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.login.LoginFragment">
+    tools:context=".ui.register.RegisterFragment">
+
+    <EditText
+        android:id="@+id/et_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginTop="16dp"
+        android:drawableStart="@drawable/ic_person"
+        android:drawablePadding="8dp"
+        android:hint="Name"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 
     <com.bagashyt.myintermediate.EmailEditText
         android:id="@+id/et_email"
@@ -15,7 +28,7 @@
         android:inputType="textEmailAddress"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/et_name" />
 
     <com.bagashyt.myintermediate.PasswordEditText
         android:id="@+id/et_password"
@@ -30,10 +43,11 @@
         android:id="@+id/btn_login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
         android:layout_marginHorizontal="32dp"
-        app:layout_constraintTop_toBottomOf="@id/et_password"
-        app:layout_constraintStart_toStartOf="parent"/>
+        android:layout_marginTop="16dp"
+        android:text="Register"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/et_password" />
 
     <TextView
         android:id="@+id/tv_haveAccount"
@@ -45,11 +59,11 @@
         app:layout_constraintTop_toBottomOf="@id/btn_login" />
 
     <TextView
-        android:id="@+id/btn_gotoRegister"
+        android:id="@+id/btn_gotoLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:text="Register"
+        android:text="Login"
         app:layout_constraintBottom_toBottomOf="@id/tv_haveAccount"
         app:layout_constraintStart_toEndOf="@id/tv_haveAccount"
         app:layout_constraintTop_toTopOf="@id/tv_haveAccount" />

@@ -9,8 +9,10 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import com.bagashyt.myintermediate.MainActivity
 import com.bagashyt.myintermediate.MainActivity.Companion.EXTRA_TOKEN
+import com.bagashyt.myintermediate.R
 import com.bagashyt.myintermediate.databinding.FragmentLoginBinding
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
@@ -50,7 +52,9 @@ class LoginFragment : Fragment() {
             btnLogin.setOnClickListener {
                 handleLogin()
             }
-            // TODO: Register btn
+            btnGotoRegister.setOnClickListener {
+                findNavController().navigate(R.id.action_loginFragment_to_registerFragment)
+            }
         }
     }
 

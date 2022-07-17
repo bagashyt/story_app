@@ -2,6 +2,7 @@ package com.bagashyt.myintermediate.data.remote
 
 import com.bagashyt.myintermediate.data.local.AuthPreferencesDataSource
 import com.bagashyt.myintermediate.data.remote.response.LoginResponse
+import com.bagashyt.myintermediate.data.remote.response.RegisterResponse
 import com.bagashyt.myintermediate.data.remote.retrofit.ApiService
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
@@ -18,6 +19,16 @@ class AuthRepository @Inject constructor(
             val response = apiService.userLogin(email, password)
             emit(Result.success(response))
         } catch (e: Exception) {
+            e.printStackTrace()
+            emit(Result.failure(e))
+        }
+    }.flowOn(Dispatchers.IO)
+
+    suspend fun userRegister(name: String, email: String, password: String): Flow<Result<RegisterResponse>> = flow {
+        try {
+            val response = apiService.userRegister(name, email, password)
+            emit(Result.success(response))
+        } catch (e: Exception){
             e.printStackTrace()
             emit(Result.failure(e))
         }
