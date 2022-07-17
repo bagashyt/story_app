@@ -1,23 +1,19 @@
 package com.bagashyt.myintermediate.ui.register
 
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
-import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.fragment.app.FragmentTransitionImpl
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
-import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import com.bagashyt.myintermediate.R
 import com.bagashyt.myintermediate.databinding.FragmentRegisterBinding
+import com.bagashyt.myintermediate.utils.animateVisibility
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Job
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
@@ -41,7 +37,7 @@ class RegisterFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.apply {
-            btnLogin.setOnClickListener {
+            btnRegister.setOnClickListener {
                 handleRegister()
             }
             btnGotoLogin.setOnClickListener {
@@ -55,6 +51,7 @@ class RegisterFragment : Fragment() {
         val name = binding.etName.text.toString().trim()
         val email = binding.etEmail.text.toString().trim()
         val password = binding.etPassword.text.toString()
+        setLoadingState(true)
 
         lifecycleScope.launchWhenResumed {
             if (registerJob.isActive) registerJob.cancel()
@@ -76,8 +73,24 @@ class RegisterFragment : Fragment() {
                             "Register failed, please try again",
                             Toast.LENGTH_SHORT
                         ).show()
+                        setLoadingState(false)
                     }
                 }
+            }
+        }
+    }
+
+    private fun setLoadingState(isLoading: Boolean) {
+        binding.apply {
+            etEmail.isEnabled = !isLoading
+            etPassword.isEnabled = !isLoading
+            etName.isEnabled = !isLoading
+
+
+            if (isLoading) {
+                viewLoading.animateVisibility(true)
+            } else {
+                viewLoading.animateVisibility(false)
             }
         }
     }

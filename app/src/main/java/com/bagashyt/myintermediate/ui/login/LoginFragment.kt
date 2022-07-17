@@ -14,6 +14,7 @@ import com.bagashyt.myintermediate.MainActivity
 import com.bagashyt.myintermediate.MainActivity.Companion.EXTRA_TOKEN
 import com.bagashyt.myintermediate.R
 import com.bagashyt.myintermediate.databinding.FragmentLoginBinding
+import com.bagashyt.myintermediate.utils.animateVisibility
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Job
@@ -61,6 +62,7 @@ class LoginFragment : Fragment() {
     private fun handleLogin() {
         val email = binding.etEmail.text.toString().trim()
         val password = binding.etPassword.text.toString()
+        setLoadingState(true)
 
         lifecycleScope.launchWhenResumed {
             if (loginJob.isActive) loginJob.cancel()
@@ -91,8 +93,23 @@ class LoginFragment : Fragment() {
                             "Login failed, please try again",
                             Snackbar.LENGTH_SHORT
                         ).show()
+                        setLoadingState(false)
                     }
                 }
+            }
+        }
+    }
+
+    private fun setLoadingState(isLoading: Boolean) {
+        binding.apply {
+            etEmail.isEnabled = !isLoading
+            etPassword.isEnabled = !isLoading
+
+
+            if (isLoading) {
+                viewLoading.animateVisibility(true)
+            } else {
+                viewLoading.animateVisibility(false)
             }
         }
     }
