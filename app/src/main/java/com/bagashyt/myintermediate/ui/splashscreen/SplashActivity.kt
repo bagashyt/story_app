@@ -7,8 +7,8 @@ import android.os.Bundle
 import android.util.Log
 import androidx.activity.viewModels
 import androidx.lifecycle.lifecycleScope
-import com.bagashyt.myintermediate.MainActivity
-import com.bagashyt.myintermediate.MainActivity.Companion.EXTRA_TOKEN
+import com.bagashyt.myintermediate.ui.main.MainActivity
+import com.bagashyt.myintermediate.ui.main.MainActivity.Companion.EXTRA_TOKEN
 import com.bagashyt.myintermediate.ui.auth.AuthActivity
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch

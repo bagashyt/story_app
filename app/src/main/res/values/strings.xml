@@ -9,4 +9,9 @@
     <string name="register">Register</string>
     <string name="name">Name</string>
     <string name="not_have_account">Don\'t have account?</string>
+    <string name="uploaded_at">Uploaded :</string>
+    <string name="date">Juli 10 2022</string>
+    <string name="logout">logout</string>
+    <string name="language_setting">Language Setting</string>
+    <string name="stories">Stories</string>
 </resources>

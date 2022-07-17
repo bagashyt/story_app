@@ -10,8 +10,8 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
-import com.bagashyt.myintermediate.MainActivity
-import com.bagashyt.myintermediate.MainActivity.Companion.EXTRA_TOKEN
+import com.bagashyt.myintermediate.ui.main.MainActivity
+import com.bagashyt.myintermediate.ui.main.MainActivity.Companion.EXTRA_TOKEN
 import com.bagashyt.myintermediate.R
 import com.bagashyt.myintermediate.databinding.FragmentLoginBinding
 import com.bagashyt.myintermediate.utils.animateVisibility
