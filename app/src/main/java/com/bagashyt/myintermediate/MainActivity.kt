@@ -11,4 +11,8 @@ class MainActivity : AppCompatActivity() {
 
 
     }
+
+    companion object {
+        const val EXTRA_TOKEN = "extra_token"
+    }
 }
