@@ -17,6 +17,7 @@ import com.bagashyt.myintermediate.R
 import com.bagashyt.myintermediate.adapter.StoryAdapter
 import com.bagashyt.myintermediate.data.remote.response.Story
 import com.bagashyt.myintermediate.databinding.ActivityMainBinding
+import com.bagashyt.myintermediate.ui.add.AddStoryActivity
 import com.bagashyt.myintermediate.ui.auth.AuthActivity
 import com.bagashyt.myintermediate.utils.animateVisibility
 import dagger.hilt.android.AndroidEntryPoint
@@ -46,6 +47,12 @@ class MainActivity : AppCompatActivity() {
         getAllStories()
         setRecyclerView()
         swipeRefreshStories()
+
+        binding.fabStory.setOnClickListener {
+            Intent(this, AddStoryActivity::class.java).also {
+                startActivity(it)
+            }
+        }
 
     }
 

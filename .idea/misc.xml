@@ -8,6 +8,7 @@
         <entry key="app/src/main/res/drawable/ic_email.xml" value="0.103" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/splash_bg.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_add_story.xml" value="0.24444444444444444" />
         <entry key="app/src/main/res/layout/activity_auth.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_authctivity.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_detail_story.xml" value="0.24444444444444444" />
@@ -19,6 +20,7 @@
         <entry key="app/src/main/res/layout/item_story.xml" value="0.25" />
         <entry key="app/src/main/res/layout/view_loading.xml" value="0.1" />
         <entry key="app/src/main/res/menu/main_menu.xml" value="0.25" />
+        <entry key="app/src/main/res/xml/file_path.xml" value="0.1" />
       </map>
     </option>
   </component>

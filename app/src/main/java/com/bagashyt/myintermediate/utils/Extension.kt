@@ -5,8 +5,10 @@ import android.content.Context
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import com.bagashyt.myintermediate.R
 import com.bumptech.glide.Glide
+import com.google.android.material.snackbar.Snackbar
 import java.text.DateFormat
 import java.text.SimpleDateFormat
 import java.util.*
@@ -33,4 +35,12 @@ fun TextView.setLocalDateFormat(timeStamp: String) {
 
     val formattedDate = DateFormat.getDateInstance(DateFormat.FULL).format(date)
     this.text = formattedDate
+}
+
+fun showSnackbar(view: View, message: String){
+    Snackbar.make(view, message, Snackbar.LENGTH_SHORT).show()
+}
+
+fun showToast(context: Context, msg: String){
+    Toast.makeText(context, msg, Toast.LENGTH_SHORT).show()
 }
