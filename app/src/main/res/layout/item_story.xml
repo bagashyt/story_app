@@ -34,6 +34,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="300dp"
                 android:layout_marginTop="16dp"
+                android:scaleType="fitXY"
                 android:src="@drawable/ic_placeholder_image"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tv_name" />
@@ -44,7 +45,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="32dp"
                 android:layout_marginVertical="16dp"
-                android:text="asdasdasdasdasdadasdasdasdasdasdasdasdasdasdasdasdasdsaasdasdadasdsadasasdasdada"
+                android:text="@string/detail_story"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/iv_story" />

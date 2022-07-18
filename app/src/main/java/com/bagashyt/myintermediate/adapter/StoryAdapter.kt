@@ -1,13 +1,19 @@
 package com.bagashyt.myintermediate.adapter
 
+import android.app.Activity
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.app.ActivityOptionsCompat
+import androidx.core.util.Pair
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bagashyt.myintermediate.data.remote.response.Story
 import com.bagashyt.myintermediate.databinding.ItemStoryBinding
+import com.bagashyt.myintermediate.ui.detail.DetailStoryActivity
+import com.bagashyt.myintermediate.ui.detail.DetailStoryActivity.Companion.EXTRA_DETAIL
 import com.bagashyt.myintermediate.utils.setImageFromUrl
 
 class StoryAdapter : ListAdapter<Story, StoryAdapter.ViewHolder>(DiffCallback) {
@@ -19,6 +25,19 @@ class StoryAdapter : ListAdapter<Story, StoryAdapter.ViewHolder>(DiffCallback) {
                 ivStory.setImageFromUrl(context, story.photoUrl)
                 tvDescription.text = story.description
 
+                root.setOnClickListener {
+                    val optionsCompat: ActivityOptionsCompat =
+                        ActivityOptionsCompat.makeSceneTransitionAnimation(
+                            root.context as Activity,
+                            Pair(ivStory, "iv_story"),
+                            Pair(tvDescription, "tv_description")
+                        )
+                    Intent(context, DetailStoryActivity::class.java).also { intent ->
+                        intent.putExtra(EXTRA_DETAIL, story)
+                        context.startActivity(intent, optionsCompat.toBundle())
+
+                    }
+                }
 
             }
         }

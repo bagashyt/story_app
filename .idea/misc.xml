@@ -10,8 +10,10 @@
         <entry key="app/src/main/res/drawable/splash_bg.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_auth.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_authctivity.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_detail_story.xml" value="0.24444444444444444" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.15" />
         <entry key="app/src/main/res/layout/activity_splash.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_detail.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_login.xml" value="0.22" />
         <entry key="app/src/main/res/layout/fragment_register.xml" value="0.22" />
         <entry key="app/src/main/res/layout/item_story.xml" value="0.25" />
