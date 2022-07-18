@@ -1,8 +1,7 @@
-package com.bagashyt.myintermediate
+package com.bagashyt.myintermediate.custom
 
 import android.content.Context
 import android.graphics.drawable.Drawable
-import android.os.Build
 import android.text.Editable
 import android.text.InputType
 import android.text.TextWatcher
@@ -10,6 +9,7 @@ import android.util.AttributeSet
 import android.util.Patterns
 import androidx.appcompat.widget.AppCompatEditText
 import androidx.core.content.ContextCompat
+import com.bagashyt.myintermediate.R
 
 class EmailEditText : AppCompatEditText {
 
@@ -39,9 +39,7 @@ class EmailEditText : AppCompatEditText {
 
         setDrawable(start = emailIconDrawable)
         hint = context.getString(R.string.email)
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            setAutofillHints(AUTOFILL_HINT_EMAIL_ADDRESS)
-        }
+        setAutofillHints(AUTOFILL_HINT_EMAIL_ADDRESS)
 
         addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}

@@ -5,17 +5,16 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
-import com.bagashyt.myintermediate.ui.main.MainActivity
-import com.bagashyt.myintermediate.ui.main.MainActivity.Companion.EXTRA_TOKEN
 import com.bagashyt.myintermediate.R
 import com.bagashyt.myintermediate.databinding.FragmentLoginBinding
+import com.bagashyt.myintermediate.ui.main.MainActivity
+import com.bagashyt.myintermediate.ui.main.MainActivity.Companion.EXTRA_TOKEN
 import com.bagashyt.myintermediate.utils.animateVisibility
-import com.google.android.material.snackbar.Snackbar
+import com.bagashyt.myintermediate.utils.showToast
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
@@ -79,20 +78,12 @@ class LoginFragment : Fragment() {
                             }
                         }
 
-                        Toast.makeText(
-                            requireContext(),
-                            "Login Success",
-                            Toast.LENGTH_SHORT
-                        ).show()
+                        showToast(requireContext(), getString(R.string.login_success))
 
                     }
 
                     result.onFailure {
-                        Snackbar.make(
-                            binding.root,
-                            "Login failed, please try again",
-                            Snackbar.LENGTH_SHORT
-                        ).show()
+                        showToast(requireContext(), getString(R.string.login_failed))
                         setLoadingState(false)
                     }
                 }

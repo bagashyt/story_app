@@ -1,5 +1,6 @@
 package com.bagashyt.myintermediate.ui.add
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.content.Intent.ACTION_GET_CONTENT
 import android.graphics.Bitmap
@@ -13,6 +14,7 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.FileProvider
 import androidx.lifecycle.lifecycleScope
+import com.bagashyt.myintermediate.R
 import com.bagashyt.myintermediate.databinding.ActivityAddStoryBinding
 import com.bagashyt.myintermediate.utils.*
 import com.bagashyt.myintermediate.utils.MediaUtil.reduceFileImage
@@ -124,12 +126,12 @@ class AddStoryActivity : AppCompatActivity() {
         var isValid = true
 
         if (edtDescription.text.toString().isBlank()) {
-            edtDescription.error = "Please fill the description"
+            edtDescription.error = getString(R.string.fill_description)
             isValid = false
         }
 
         if (getFile == null) {
-            showSnackbar(binding.root, "Please select an Image")
+            showSnackbar(binding.root, getString(R.string.select_image))
             isValid = false
         }
 
@@ -148,13 +150,13 @@ class AddStoryActivity : AppCompatActivity() {
                 launch {
                     viewModel.uploadImage(token, imageMultipart, description).collect { response ->
                         response.onSuccess {
-                            showToast(this@AddStoryActivity, "Story Uploaded")
+                            showToast(this@AddStoryActivity, getString(R.string.story_uploaded))
                             finish()
                         }
 
                         response.onFailure {
                             setLoadingState(false)
-                            showSnackbar(binding.root, "Failed upload image")
+                            showSnackbar(binding.root, getString(R.string.failed_upload))
                         }
                     }
                 }
@@ -167,11 +169,12 @@ class AddStoryActivity : AppCompatActivity() {
         val intent = Intent()
         intent.action = ACTION_GET_CONTENT
         intent.type = "image/*"
-        val chooser = Intent.createChooser(intent, "Choose a Picture")
+        val chooser = Intent.createChooser(intent, getString(R.string.choose_picture))
         launchIntentGallery.launch(chooser)
     }
 
 
+    @SuppressLint("QueryPermissionsNeeded")
     private fun startIntentCamera() {
         val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE_SECURE)
         intent.resolveActivity(packageManager)

@@ -1,9 +1,8 @@
-package com.bagashyt.myintermediate
+package com.bagashyt.myintermediate.custom
 
 import android.content.Context
 import android.graphics.Canvas
 import android.graphics.drawable.Drawable
-import android.os.Build
 import android.text.Editable
 import android.text.InputType
 import android.text.TextWatcher
@@ -11,6 +10,7 @@ import android.text.method.PasswordTransformationMethod
 import android.util.AttributeSet
 import androidx.appcompat.widget.AppCompatEditText
 import androidx.core.content.ContextCompat
+import com.bagashyt.myintermediate.R
 
 class PasswordEditText : AppCompatEditText {
     private lateinit var passwordIconDrawable: Drawable
@@ -42,9 +42,7 @@ class PasswordEditText : AppCompatEditText {
         compoundDrawablePadding = 16
         hint = context.getString(R.string.password)
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            setAutofillHints(AUTOFILL_HINT_PASSWORD)
-        }
+        setAutofillHints(AUTOFILL_HINT_PASSWORD)
 
         setDrawable(start = passwordIconDrawable)
 

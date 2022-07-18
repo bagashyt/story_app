@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.provider.Settings
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Lifecycle
@@ -20,6 +19,7 @@ import com.bagashyt.myintermediate.databinding.ActivityMainBinding
 import com.bagashyt.myintermediate.ui.add.AddStoryActivity
 import com.bagashyt.myintermediate.ui.auth.AuthActivity
 import com.bagashyt.myintermediate.utils.animateVisibility
+import com.bagashyt.myintermediate.utils.showToast
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
@@ -95,11 +95,7 @@ class MainActivity : AppCompatActivity() {
                         }
                     }
                     result.onFailure {
-                        Toast.makeText(
-                            this@MainActivity,
-                            "An Error Occurred",
-                            Toast.LENGTH_SHORT
-                        ).show()
+                        showToast(this@MainActivity, getString(R.string.error_occured))
 
                         binding.apply {
                             tvNotFound.animateVisibility(true)

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">My Intermediate</string>
+    <string name="email">Alamat Email</string>
+    <string name="email_error">Alamat Email tidak valid</string>
+    <string name="password">Kata Sandi</string>
+    <string name="password_error">Kata Sandi harus berisi minimal 6 karakter</string>
+    <string name="login">Masuk</string>
+    <string name="have_account">Sudah punya akun?</string>
+    <string name="register">Daftar</string>
+    <string name="name">Nama</string>
+    <string name="not_have_account">Belum punya akun?</string>
+    <string name="date">Juli 10 2022</string>
+    <string name="logout">keluar</string>
+    <string name="language_setting">Pengaturan Bahasa</string>
+    <string name="stories">Cerita</string>
+    <string name="detail_story">Detail Cerita</string>
+    <string name="add_story">Tambah Cerita</string>
+    <string name="select_image_from">Pilih gambar dari :</string>
+    <string name="camera">Kamera</string>
+    <string name="gallery">Galeri</string>
+    <string name="write_story_description">Tulis deskripsi cerita :</string>
+    <string name="upload">Unggah</string>
+    <string name="uploaded_at">Unggahan :</string>
+    <string name="select_image">Silahkan pilih gambar</string>
+    <string name="fill_description">Silahkan isi deskripsi</string>
+    <string name="story_uploaded">Cerita berhasil di unggah</string>
+    <string name="failed_upload">Gambar gagal di unggah</string>
+    <string name="choose_picture">Pilih Gambar</string>
+    <string name="login_success">Berhasil Masuk</string>
+    <string name="login_failed">Gagal masuk, silahkan coba lagi</string>
+    <string name="error_occured">Telah terjadi Error</string>
+    <string name="register_success">Pendaftaran berhasil</string>
+    <string name="register_failed">Gagal daftar, silahkan coba lagi</string>
+</resources>

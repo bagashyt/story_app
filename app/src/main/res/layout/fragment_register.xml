@@ -19,7 +19,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
 
-    <com.bagashyt.myintermediate.EmailEditText
+    <com.bagashyt.myintermediate.custom.EmailEditText
         android:id="@+id/et_email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -30,7 +30,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/et_name" />
 
-    <com.bagashyt.myintermediate.PasswordEditText
+    <com.bagashyt.myintermediate.custom.PasswordEditText
         android:id="@+id/et_password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

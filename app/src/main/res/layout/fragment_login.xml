@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".ui.login.LoginFragment">
 
-    <com.bagashyt.myintermediate.EmailEditText
+    <com.bagashyt.myintermediate.custom.EmailEditText
         android:id="@+id/et_email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -17,7 +17,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.bagashyt.myintermediate.PasswordEditText
+    <com.bagashyt.myintermediate.custom.PasswordEditText
         android:id="@+id/et_password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

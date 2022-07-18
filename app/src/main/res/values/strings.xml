@@ -19,8 +19,18 @@
     <string name="detail_story">Detail Story</string>
     <string name="add_story">Add Story</string>
     <string name="select_image_from">Select image from :</string>
-    <string name="camera">CAMERA</string>
+    <string name="camera">Camera</string>
     <string name="gallery">Gallery</string>
     <string name="write_story_description">Write story description :</string>
     <string name="upload">Upload</string>
+    <string name="select_image">Please select an Image</string>
+    <string name="fill_description">Please fill the description</string>
+    <string name="story_uploaded">Story Uploaded</string>
+    <string name="failed_upload">Failed upload image</string>
+    <string name="choose_picture">Choose a Picture</string>
+    <string name="login_success">Login Success</string>
+    <string name="login_failed">Login failed, please try again</string>
+    <string name="error_occured">An Error Occurred</string>
+    <string name="register_success">Register success</string>
+    <string name="register_failed">Register failed, please try again</string>
 </resources>
