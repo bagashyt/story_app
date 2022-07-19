@@ -29,14 +29,6 @@ fun ImageView.setImageFromUrl(context: Context, url: String) {
         .into(this)
 }
 
-fun TextView.setLocalDateFormat(timeStamp: String) {
-    val sdf = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", Locale.US)
-    val date = sdf.parse(timeStamp) as Date
-
-    val formattedDate = DateFormat.getDateInstance(DateFormat.FULL).format(date)
-    this.text = formattedDate
-}
-
 fun showSnackbar(view: View, message: String){
     Snackbar.make(view, message, Snackbar.LENGTH_SHORT).show()
 }

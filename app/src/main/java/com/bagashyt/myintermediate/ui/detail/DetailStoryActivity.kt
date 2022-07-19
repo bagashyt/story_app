@@ -31,6 +31,7 @@ class DetailStoryActivity : AppCompatActivity() {
 
     private fun parseStoryData(story: Story) {
         binding.apply {
+            tvName.text = story.name
             tvDescription.text = story.description
 
             ivStory.setImageFromUrl(this@DetailStoryActivity, story.photoUrl)

@@ -47,7 +47,7 @@ object MediaUtil {
             val bmpStream = ByteArrayOutputStream()
             bitmap.compress(Bitmap.CompressFormat.JPEG, compressQuality, bmpStream)
             val bmpPicByteArray = bmpStream.toByteArray()
-            streamLength = bmpStream.size()
+            streamLength = bmpPicByteArray.size
             compressQuality -= 5
         } while (streamLength > 100000)
 

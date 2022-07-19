@@ -23,14 +23,13 @@ class StoryAdapter : ListAdapter<Story, StoryAdapter.ViewHolder>(DiffCallback) {
             binding.apply {
                 tvName.text = story.name
                 ivStory.setImageFromUrl(context, story.photoUrl)
-                tvDescription.text = story.description
 
                 root.setOnClickListener {
                     val optionsCompat: ActivityOptionsCompat =
                         ActivityOptionsCompat.makeSceneTransitionAnimation(
                             root.context as Activity,
                             Pair(ivStory, "iv_story"),
-                            Pair(tvDescription, "tv_description")
+                            Pair(tvName, "tv_name")
                         )
                     Intent(context, DetailStoryActivity::class.java).also { intent ->
                         intent.putExtra(EXTRA_DETAIL, story)
