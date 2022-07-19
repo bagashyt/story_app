@@ -4,14 +4,10 @@ import android.animation.ObjectAnimator
 import android.content.Context
 import android.view.View
 import android.widget.ImageView
-import android.widget.TextView
 import android.widget.Toast
 import com.bagashyt.myintermediate.R
 import com.bumptech.glide.Glide
 import com.google.android.material.snackbar.Snackbar
-import java.text.DateFormat
-import java.text.SimpleDateFormat
-import java.util.*
 
 fun View.animateVisibility(isVisible: Boolean, duration: Long = 400L) {
     ObjectAnimator

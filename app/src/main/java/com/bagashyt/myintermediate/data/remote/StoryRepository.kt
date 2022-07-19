@@ -38,7 +38,7 @@ class StoryRepository @Inject constructor(
         token: String,
         file: MultipartBody.Part,
         description: RequestBody
-    ): Flow<Result<StoryUploadResponse>> = flow<Result<StoryUploadResponse>> {
+    ): Flow<Result<StoryUploadResponse>> = flow {
         try {
             val bearerToken = generateBearerToken(token)
             val response = apiService.uploadImage(bearerToken, file, description)
