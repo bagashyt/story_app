@@ -39,4 +39,9 @@ class AuthRepository @Inject constructor(
     suspend fun saveAuthToken(token: String) {
         preferencesDataSource.saveAuthToken(token)
     }
+
+    suspend fun deleteAuthToken(){
+        preferencesDataSource.deleteAuthToken()
+    }
+
 }

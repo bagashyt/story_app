@@ -1,6 +1,7 @@
 package com.bagashyt.myintermediate.ui.add
 
 import androidx.lifecycle.ViewModel
+import androidx.paging.ExperimentalPagingApi
 import com.bagashyt.myintermediate.data.remote.AuthRepository
 import com.bagashyt.myintermediate.data.remote.StoryRepository
 import com.bagashyt.myintermediate.data.remote.response.StoryUploadResponse
@@ -11,6 +12,7 @@ import okhttp3.RequestBody
 import javax.inject.Inject
 
 @HiltViewModel
+@ExperimentalPagingApi
 class AddStoryViewModel @Inject constructor(
     private val authRepository: AuthRepository,
     private val storyRepository: StoryRepository

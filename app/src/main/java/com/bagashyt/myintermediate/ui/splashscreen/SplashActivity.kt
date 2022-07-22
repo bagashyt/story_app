@@ -6,6 +6,7 @@ import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
+import androidx.paging.ExperimentalPagingApi
 import com.bagashyt.myintermediate.ui.auth.AuthActivity
 import com.bagashyt.myintermediate.ui.main.MainActivity
 import com.bagashyt.myintermediate.ui.main.MainActivity.Companion.EXTRA_TOKEN
@@ -14,6 +15,7 @@ import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 @SuppressLint("CustomSplashScreen")
+@ExperimentalPagingApi
 class SplashActivity : AppCompatActivity() {
 
     private val viewModel: SplashViewModel by viewModels()

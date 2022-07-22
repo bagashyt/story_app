@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
+import androidx.paging.ExperimentalPagingApi
 import com.bagashyt.myintermediate.R
 import com.bagashyt.myintermediate.databinding.FragmentLoginBinding
 import com.bagashyt.myintermediate.ui.main.MainActivity
@@ -20,6 +21,7 @@ import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
+@ExperimentalPagingApi
 class LoginFragment : Fragment() {
 
     private var _binding: FragmentLoginBinding? = null

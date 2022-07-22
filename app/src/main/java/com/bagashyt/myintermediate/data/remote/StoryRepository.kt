@@ -1,5 +1,12 @@
 package com.bagashyt.myintermediate.data.remote
 
+import androidx.paging.ExperimentalPagingApi
+import androidx.paging.Pager
+import androidx.paging.PagingConfig
+import androidx.paging.PagingData
+import com.bagashyt.myintermediate.data.local.db.StoryDatabase
+import com.bagashyt.myintermediate.data.model.StoryModel
+import com.bagashyt.myintermediate.data.paging.StoryRemoteMediator
 import com.bagashyt.myintermediate.data.remote.response.StoriesResponse
 import com.bagashyt.myintermediate.data.remote.response.StoryUploadResponse
 import com.bagashyt.myintermediate.data.remote.retrofit.ApiService
@@ -11,9 +18,26 @@ import okhttp3.MultipartBody
 import okhttp3.RequestBody
 import javax.inject.Inject
 
+@ExperimentalPagingApi
 class StoryRepository @Inject constructor(
-    private val apiService: ApiService
+    private val apiService: ApiService,
+    private val storyDatabase: StoryDatabase
 ) {
+
+
+    suspend fun getListStories(token: String): Flow<PagingData<StoryModel>> {
+        return Pager(
+            config = PagingConfig(pageSize = 10),
+            remoteMediator = StoryRemoteMediator(
+                apiService = apiService,
+                storyDatabase = storyDatabase,
+                token = generateBearerToken(token)
+            ),
+            pagingSourceFactory = {
+                storyDatabase.storyDao().getAllStories()
+            }
+        ).flow
+    }
 
     suspend fun getAllStories(
         token: String,
@@ -22,7 +46,7 @@ class StoryRepository @Inject constructor(
     ): Flow<Result<StoriesResponse>> = flow {
         try {
             val bearerToken = generateBearerToken(token)
-            val response = apiService.getAllStories(bearerToken, page, size)
+            val response = apiService.getAllStories(bearerToken, 1,  page, size)
             emit(Result.success(response))
         } catch (e: Exception) {
             e.printStackTrace()

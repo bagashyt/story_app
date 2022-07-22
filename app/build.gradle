@@ -4,6 +4,7 @@ plugins {
     id 'kotlin-kapt'
     id 'dagger.hilt.android.plugin'
     id 'kotlin-parcelize'
+    id 'com.google.android.libraries.mapsplatform.secrets-gradle-plugin'
 }
 
 android {
@@ -57,6 +58,7 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.5.0-alpha06"
     implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.5.0-alpha06"
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.0-alpha06"
+    implementation 'com.google.android.gms:play-services-maps:18.0.2'
 
     // Navigation
     implementation "androidx.navigation:navigation-runtime-ktx:2.4.2"
@@ -79,4 +81,16 @@ dependencies {
     // Glide
     implementation 'com.github.bumptech.glide:glide:4.13.1'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.13.0'
+
+    // Room
+    implementation "androidx.room:room-runtime:2.4.2"
+    implementation "androidx.room:room-ktx:2.4.2"
+    implementation 'androidx.room:room-paging:2.5.0-alpha01'
+    kapt "androidx.room:room-compiler:2.4.2"
+
+    // Location
+    implementation 'com.google.android.gms:play-services-location:19.0.1'
+
+    // Paging3
+    implementation "androidx.paging:paging-runtime-ktx:3.1.1"
 }

@@ -23,6 +23,12 @@ class AuthPreferencesDataSource @Inject constructor(
         }
     }
 
+    suspend fun deleteAuthToken() {
+        dataStore.edit { preferences ->
+            preferences.clear()
+        }
+    }
+
     companion object {
         private val TOKEN_KEY = stringPreferencesKey("token_data")
     }

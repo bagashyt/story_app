@@ -2,7 +2,7 @@ package com.bagashyt.myintermediate.ui.detail
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.bagashyt.myintermediate.data.remote.response.Story
+import com.bagashyt.myintermediate.data.model.StoryModel
 import com.bagashyt.myintermediate.databinding.ActivityDetailStoryBinding
 import com.bagashyt.myintermediate.utils.setImageFromUrl
 
@@ -15,8 +15,8 @@ class DetailStoryActivity : AppCompatActivity() {
         binding = ActivityDetailStoryBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val story = intent.getParcelableExtra<Story>(EXTRA_DETAIL)
-        parseStoryData(story!!)
+        val storyModel = intent.getParcelableExtra<StoryModel>(EXTRA_DETAIL)
+        parseStoryData(storyModel!!)
 
         setSupportActionBar(binding.toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
@@ -29,12 +29,12 @@ class DetailStoryActivity : AppCompatActivity() {
         return true
     }
 
-    private fun parseStoryData(story: Story) {
+    private fun parseStoryData(storyModel: StoryModel) {
         binding.apply {
-            tvName.text = story.name
-            tvDescription.text = story.description
+            tvName.text = storyModel.name
+            tvDescription.text = storyModel.description
 
-            ivStory.setImageFromUrl(this@DetailStoryActivity, story.photoUrl)
+            ivStory.setImageFromUrl(this@DetailStoryActivity, storyModel.photoUrl!!)
         }
     }
 

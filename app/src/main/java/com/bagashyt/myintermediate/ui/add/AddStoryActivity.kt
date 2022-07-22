@@ -14,6 +14,7 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.FileProvider
 import androidx.lifecycle.lifecycleScope
+import androidx.paging.ExperimentalPagingApi
 import com.bagashyt.myintermediate.R
 import com.bagashyt.myintermediate.databinding.ActivityAddStoryBinding
 import com.bagashyt.myintermediate.utils.*
@@ -32,6 +33,7 @@ import java.io.FileOutputStream
 import java.io.OutputStream
 
 @AndroidEntryPoint
+@ExperimentalPagingApi
 class AddStoryActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityAddStoryBinding

@@ -2,6 +2,11 @@ package com.bagashyt.myintermediate.ui.main
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import androidx.paging.ExperimentalPagingApi
+import androidx.paging.PagingData
+import androidx.paging.cachedIn
+import com.bagashyt.myintermediate.data.local.db.StoryDatabase
+import com.bagashyt.myintermediate.data.model.StoryModel
 import com.bagashyt.myintermediate.data.remote.AuthRepository
 import com.bagashyt.myintermediate.data.remote.StoryRepository
 import com.bagashyt.myintermediate.data.remote.response.StoriesResponse
@@ -11,9 +16,11 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
+@ExperimentalPagingApi
 class MainViewModel @Inject constructor(
     private val authRepository: AuthRepository,
-    private val storyRepository: StoryRepository
+    private val storyRepository: StoryRepository,
+    private val storyDatabase: StoryDatabase
 ) : ViewModel() {
 
     fun saveAuthToken(token: String) {
@@ -22,6 +29,17 @@ class MainViewModel @Inject constructor(
         }
     }
 
+    fun deleteAuthToken() {
+        viewModelScope.launch {
+            storyDatabase.remoteKeysDao().deleteAllRemoteKeys()
+            authRepository.deleteAuthToken()
+
+        }
+    }
+
     suspend fun getAllStories(token: String): Flow<Result<StoriesResponse>> =
         storyRepository.getAllStories(token, null, null)
+
+    suspend fun getListStories(token: String): Flow<PagingData<StoryModel>> =
+        storyRepository.getListStories(token).cachedIn(viewModelScope)
 }
