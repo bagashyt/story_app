@@ -10,11 +10,13 @@
         <entry key="app/src/main/res/drawable/ic_language.xml" value="0.1965" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_location.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/ic_lock.xml" value="0.2335" />
+        <entry key="app/src/main/res/drawable/ic_logout.xml" value="0.2335" />
         <entry key="app/src/main/res/drawable/splash_bg.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/activity_add_story.xml" value="0.24444444444444444" />
+        <entry key="app/src/main/res/layout/activity_add_story.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_auth.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_authctivity.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/activity_detail_story.xml" value="0.24444444444444444" />
+        <entry key="app/src/main/res/layout/activity_detail_story.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_location.xml" value="0.2595108695652174" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_splash.xml" value="0.1" />

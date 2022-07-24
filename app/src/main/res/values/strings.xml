@@ -36,4 +36,9 @@
     <string name="loc_permission_not_allowed">Location Permission not allowed</string>
     <string name="change_setting">Change Setting</string>
     <string name="pls_check_gps">Please check your GPS</string>
+    <string name="location">Location</string>
+    <string name="are_you_sure">Are you sure?</string>
+    <string name="going_logout">You are going to logout from this app</string>
+    <string name="cancel">Cancel</string>
+    <string name="logout_success">Logged out successfully</string>
 </resources>

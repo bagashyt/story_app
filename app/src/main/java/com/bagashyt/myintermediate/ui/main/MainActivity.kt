@@ -24,6 +24,8 @@ import com.bagashyt.myintermediate.ui.add.AddStoryActivity
 import com.bagashyt.myintermediate.ui.auth.AuthActivity
 import com.bagashyt.myintermediate.ui.location.LocationActivity
 import com.bagashyt.myintermediate.utils.animateVisibility
+import com.bagashyt.myintermediate.utils.showToast
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
@@ -69,12 +71,7 @@ class MainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.menu_logout -> {
-                viewModel.deleteAuthToken()
-                viewModel.saveAuthToken("")
-                Intent(this, AuthActivity::class.java).also { intent ->
-                    startActivity(intent)
-                    finish()
-                }
+                showLogoutDialog()
                 true
             }
             R.id.menu_language -> {
@@ -152,6 +149,25 @@ class MainActivity : AppCompatActivity() {
             getAllStories()
             binding.viewLoading.animateVisibility(false)
         }
+    }
+
+    private fun showLogoutDialog() {
+        MaterialAlertDialogBuilder(this)
+            .setTitle(getString(R.string.are_you_sure))
+            .setMessage(getString(R.string.going_logout))
+            .setNegativeButton(getString(R.string.cancel)) { dialog, _ ->
+                dialog.dismiss()
+            }
+            .setPositiveButton(getString(R.string.logout)) { _, _ ->
+                viewModel.saveAuthToken("")
+                viewModel.deleteAuthToken()
+                Intent(this, AuthActivity::class.java).also { intent ->
+                    startActivity(intent)
+                    finish()
+                }
+                showToast(this, getString(R.string.logout_success))
+            }
+            .show()
     }
 
     companion object {

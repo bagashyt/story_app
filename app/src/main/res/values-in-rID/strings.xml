@@ -10,7 +10,6 @@
     <string name="register">Daftar</string>
     <string name="name">Nama</string>
     <string name="not_have_account">Belum punya akun?</string>
-    <string name="date">Juli 10 2022</string>
     <string name="logout">keluar</string>
     <string name="language_setting">Pengaturan Bahasa</string>
     <string name="stories">Cerita</string>
@@ -38,4 +37,9 @@
     <string name="change_setting">Ubah pengaturan</string>
     <string name="pls_check_gps">Mohon aktifkan GPS</string>
     <string name="loc_permission_not_allowed">Perizinan lokasi tidak dibolehkan</string>
+    <string name="location">Lokasi</string>
+    <string name="are_you_sure">Apa kamu yakin?</string>
+    <string name="going_logout">Kamu akan keluar dari aplikasi ini</string>
+    <string name="cancel">Batalkan</string>
+    <string name="logout_success">Berhasil keluar</string>
 </resources>

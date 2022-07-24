@@ -10,15 +10,16 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/cardview_dark_background"
+        android:background="@color/color_primary"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/white"
             android:text="@string/detail_story"
+            android:textColor="@color/white"
             android:textSize="24sp"
             android:textStyle="bold" />
     </androidx.appcompat.widget.Toolbar>
@@ -40,10 +41,11 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="20dp"
         android:layout_marginVertical="16dp"
-        android:transitionName="tv_name"
-        android:textStyle="bold"
-        android:textSize="18sp"
         android:text="@string/name"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:transitionName="tv_name"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/toolbar" />
 
@@ -53,6 +55,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
         android:text="@string/detail_story"
+        android:textColor="@color/black"
         android:transitionName="tv_description"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
