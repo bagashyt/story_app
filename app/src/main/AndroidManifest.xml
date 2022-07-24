@@ -9,6 +9,25 @@
         android:name="android.permission.WRITE_EXTERNAL_STORAGE"
         android:maxSdkVersion="18" />
 
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <uses-feature android:name="android.hardware.camera" />
+
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
+
+    <queries>
+        <intent>
+            <action android:name="android.intent.action.VIEW" />
+
+            <category android:name="android.intent.category.BROWSABLE" />
+
+            <data android:scheme="https" />
+        </intent>
+    </queries>
+
     <application
         android:name=".BaseApplication"
         android:allowBackup="true"
@@ -20,8 +39,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyIntermediate"
         tools:targetApi="31">
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyDjA8r3KZCvAgDGx60CjTHcXji7PVhHRDI" />
+
         <activity
             android:name=".ui.add.AddStoryActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.location.LocationActivity"
             android:exported="false" />
         <activity
             android:name=".ui.detail.DetailStoryActivity"

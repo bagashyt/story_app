@@ -9,7 +9,6 @@ import com.bagashyt.myintermediate.data.local.db.StoryDatabase
 import com.bagashyt.myintermediate.data.model.StoryModel
 import com.bagashyt.myintermediate.data.remote.AuthRepository
 import com.bagashyt.myintermediate.data.remote.StoryRepository
-import com.bagashyt.myintermediate.data.remote.response.StoriesResponse
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.launch
@@ -37,9 +36,6 @@ class MainViewModel @Inject constructor(
         }
     }
 
-    suspend fun getAllStories(token: String): Flow<Result<StoriesResponse>> =
-        storyRepository.getAllStories(token, null, null)
-
-    suspend fun getListStories(token: String): Flow<PagingData<StoryModel>> =
+    fun getListStories(token: String): Flow<PagingData<StoryModel>> =
         storyRepository.getListStories(token).cachedIn(viewModelScope)
 }

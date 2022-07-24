@@ -22,6 +22,7 @@ import com.bagashyt.myintermediate.data.model.StoryModel
 import com.bagashyt.myintermediate.databinding.ActivityMainBinding
 import com.bagashyt.myintermediate.ui.add.AddStoryActivity
 import com.bagashyt.myintermediate.ui.auth.AuthActivity
+import com.bagashyt.myintermediate.ui.location.LocationActivity
 import com.bagashyt.myintermediate.utils.animateVisibility
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
@@ -78,6 +79,12 @@ class MainActivity : AppCompatActivity() {
             }
             R.id.menu_language -> {
                 startActivity(Intent(Settings.ACTION_LOCALE_SETTINGS))
+                true
+            }
+            R.id.menu_location -> {
+                Intent(this, LocationActivity::class.java).also {
+                    startActivity(it)
+                }
                 true
             }
             else -> super.onOptionsItemSelected(item)

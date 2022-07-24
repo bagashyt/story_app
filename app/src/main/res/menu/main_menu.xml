@@ -10,4 +10,9 @@
         android:icon="@drawable/ic_language"
         android:title="@string/language_setting"
         app:showAsAction="always" />
+    <item
+        android:id="@+id/menu_location"
+        android:icon="@drawable/ic_location"
+        android:title="@string/language_setting"
+        app:showAsAction="always" />
 </menu>

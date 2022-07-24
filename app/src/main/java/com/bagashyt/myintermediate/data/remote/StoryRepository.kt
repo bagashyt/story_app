@@ -25,7 +25,7 @@ class StoryRepository @Inject constructor(
 ) {
 
 
-    suspend fun getListStories(token: String): Flow<PagingData<StoryModel>> {
+     fun getListStories(token: String): Flow<PagingData<StoryModel>> {
         return Pager(
             config = PagingConfig(pageSize = 10),
             remoteMediator = StoryRemoteMediator(
