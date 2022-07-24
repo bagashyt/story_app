@@ -13,6 +13,6 @@
     <item
         android:id="@+id/menu_location"
         android:icon="@drawable/ic_location"
-        android:title="@string/language_setting"
+        android:title="@string/location_setting"
         app:showAsAction="always" />
 </menu>

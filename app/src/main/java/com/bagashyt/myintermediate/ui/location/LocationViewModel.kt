@@ -13,7 +13,7 @@ import javax.inject.Inject
 @ExperimentalPagingApi
 class LocationViewModel @Inject constructor(
     private val storyRepository: StoryRepository,
-    val authRepository: AuthRepository
+    private val authRepository: AuthRepository
 ) :
     ViewModel() {
     suspend fun getListStories(token: String): Flow<Result<StoriesResponse>> =

@@ -13,7 +13,6 @@ import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
 import android.provider.Settings
-import android.util.Log
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -48,7 +47,7 @@ class AddStoryActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityAddStoryBinding
     private lateinit var currentPhotoPath: String
-    private lateinit var fusetLocationClient: FusedLocationProviderClient
+    private lateinit var fusedLocationClient: FusedLocationProviderClient
 
     private var getFile: File? = null
     private var location: Location? = null
@@ -110,7 +109,7 @@ class AddStoryActivity : AppCompatActivity() {
         binding = ActivityAddStoryBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        fusetLocationClient = LocationServices.getFusedLocationProviderClient(this)
+        fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
 
         setSupportActionBar(binding.toolbar)
         supportActionBar?.setDisplayShowHomeEnabled(true)
@@ -231,12 +230,11 @@ class AddStoryActivity : AppCompatActivity() {
                 Manifest.permission.ACCESS_COARSE_LOCATION
             ) == PackageManager.PERMISSION_GRANTED
         ) {
-            fusetLocationClient.lastLocation.addOnSuccessListener { location ->
+            fusedLocationClient.lastLocation.addOnSuccessListener { location ->
                 if (location != null) {
                     this.location = location
-                    Log.d("TAG_Location", "LAT: ${location.latitude}, LON: ${location.longitude}")
                 } else {
-                    showToast(this, "Please check your GPS")
+                    showToast(this, getString(R.string.pls_check_gps))
                     binding.switchLocation.isChecked = false
                 }
             }
@@ -251,19 +249,19 @@ class AddStoryActivity : AppCompatActivity() {
 
     private val requestPermissionLauncher = registerForActivityResult(
         ActivityResultContracts.RequestMultiplePermissions()
-    ) { perimission ->
+    ) { permission ->
         when {
-            perimission[Manifest.permission.ACCESS_COARSE_LOCATION] ?: false -> {
+            permission[Manifest.permission.ACCESS_COARSE_LOCATION] ?: false -> {
                 getCurrentLocation()
             }
             else -> {
                 Snackbar
                     .make(
                         binding.root,
-                        "Location Permission not allowed",
+                        getString(R.string.loc_permission_not_allowed),
                         Snackbar.LENGTH_SHORT
                     )
-                    .setAction("Change Setting") {
+                    .setAction(getString(R.string.change_setting)) {
                         Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS).also { intent ->
                             val uri = Uri.fromParts("package", packageName, null)
                             intent.data = uri

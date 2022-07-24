@@ -90,7 +90,7 @@ class LocationActivity : AppCompatActivity() {
                     val latLng = LatLng(location.latitude, location.longitude)
                     mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 8f))
                 } else {
-                    showToast(this, "Please activate location")
+                    showToast(this, getString(R.string.pls_activate_loc))
                 }
             }
         } else {

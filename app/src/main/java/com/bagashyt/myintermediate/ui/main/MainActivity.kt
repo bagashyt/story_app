@@ -97,28 +97,6 @@ class MainActivity : AppCompatActivity() {
                 viewModel.getListStories(token).collect { result ->
 
                     updateRecyclerViewData(result)
-                    /*
-                        result.onSuccess { response ->
-
-                            binding.apply {
-                                ivNotFound.animateVisibility(response.stories.isEmpty())
-                                tvNotFound.animateVisibility(response.stories.isEmpty())
-                                rvStories.animateVisibility(response.stories.isNotEmpty())
-                                viewLoading.animateVisibility(false)
-                                swipeRefresh.isRefreshing = false
-                            }
-                        }
-                        result.onFailure {
-                            showToast(this@MainActivity, getString(R.string.error_occured))
-
-                            binding.apply {
-                                tvNotFound.animateVisibility(true)
-                                ivNotFound.animateVisibility(true)
-                                rvStories.animateVisibility(false)
-                                viewLoading.animateVisibility(false)
-                                swipeRefresh.isRefreshing = false
-                            }
-                        }*/
                 }
             }
         }

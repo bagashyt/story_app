@@ -32,4 +32,10 @@
     <string name="error_occured">Telah terjadi Error</string>
     <string name="register_success">Pendaftaran berhasil</string>
     <string name="register_failed">Gagal daftar, silahkan coba lagi</string>
+    <string name="share_your_location">Bagikan lokasi anda?</string>
+    <string name="location_setting">Pengaturan lokasi</string>
+    <string name="pls_activate_loc">Mohon aktifkan lokasi</string>
+    <string name="change_setting">Ubah pengaturan</string>
+    <string name="pls_check_gps">Mohon aktifkan GPS</string>
+    <string name="loc_permission_not_allowed">Perizinan lokasi tidak dibolehkan</string>
 </resources>
