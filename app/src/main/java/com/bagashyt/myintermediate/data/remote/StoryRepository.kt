@@ -25,7 +25,7 @@ class StoryRepository @Inject constructor(
 ) {
 
 
-     fun getListStories(token: String): Flow<PagingData<StoryModel>> {
+    fun getListStories(token: String): Flow<PagingData<StoryModel>> {
         return Pager(
             config = PagingConfig(pageSize = 10),
             remoteMediator = StoryRemoteMediator(
@@ -46,7 +46,7 @@ class StoryRepository @Inject constructor(
     ): Flow<Result<StoriesResponse>> = flow {
         try {
             val bearerToken = generateBearerToken(token)
-            val response = apiService.getAllStories(bearerToken, 1,  page, size)
+            val response = apiService.getAllStories(bearerToken, 1, page, size)
             emit(Result.success(response))
         } catch (e: Exception) {
             e.printStackTrace()
@@ -61,11 +61,13 @@ class StoryRepository @Inject constructor(
     suspend fun uploadImage(
         token: String,
         file: MultipartBody.Part,
-        description: RequestBody
+        description: RequestBody,
+        lat: RequestBody? = null,
+        lon: RequestBody? = null
     ): Flow<Result<StoryUploadResponse>> = flow {
         try {
             val bearerToken = generateBearerToken(token)
-            val response = apiService.uploadImage(bearerToken, file, description)
+            val response = apiService.uploadImage(bearerToken, file, description, lat, lon)
             emit(Result.success(response))
         } catch (e: Exception) {
             e.printStackTrace()
