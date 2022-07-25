@@ -53,7 +53,10 @@ class StoryRemoteMediator(
             val responseData = response.stories
             val endOfPaginationReached = responseData.isEmpty()
 
+<<<<<<< HEAD
             Log.d("TAG_StoryRemoteMediator", "inserting: $response")
+=======
+>>>>>>> 479ac96... delete log
 
             storyDatabase.withTransaction {
                 if (loadType == LoadType.REFRESH) {
