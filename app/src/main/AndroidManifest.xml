@@ -37,7 +37,7 @@
         tools:targetApi="31">
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyDjA8r3KZCvAgDGx60CjTHcXji7PVhHRDI" />
+            android:value="{API MAP}" />
 
         <activity
             android:name=".ui.add.AddStoryActivity"

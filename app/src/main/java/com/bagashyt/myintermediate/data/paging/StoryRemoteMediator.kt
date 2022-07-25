@@ -1,5 +1,6 @@
 package com.bagashyt.myintermediate.data.paging
 
+import android.util.Log
 import androidx.paging.ExperimentalPagingApi
 import androidx.paging.LoadType
 import androidx.paging.PagingState
@@ -52,6 +53,8 @@ class StoryRemoteMediator(
             val responseData = response.stories
             val endOfPaginationReached = responseData.isEmpty()
 
+            Log.d("TAG_StoryRemoteMediator", "inserting: $response")
+
             storyDatabase.withTransaction {
                 if (loadType == LoadType.REFRESH) {
                     storyDatabase.remoteKeysDao().deleteAllRemoteKeys()
@@ -72,6 +75,7 @@ class StoryRemoteMediator(
             }
             MediatorResult.Success(endOfPaginationReached)
         } catch (e: Exception) {
+            Log.d("TAG_exception","error: $e")
             MediatorResult.Error(e)
         }
     }
@@ -81,7 +85,7 @@ class StoryRemoteMediator(
     }
 
     private suspend fun getRemoteKeyForFirstItem(state: PagingState<Int, StoryModel>): RemoteKeys? {
-        return state.pages.lastOrNull { it.data.isNotEmpty() }?.data?.lastOrNull()?.let { data ->
+        return state.pages.firstOrNull() { it.data.isNotEmpty() }?.data?.lastOrNull()?.let { data ->
             storyDatabase.remoteKeysDao().getRemoteKey(data.id)
         }
     }

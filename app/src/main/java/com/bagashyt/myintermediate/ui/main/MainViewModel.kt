@@ -19,7 +19,6 @@ import javax.inject.Inject
 class MainViewModel @Inject constructor(
     private val authRepository: AuthRepository,
     private val storyRepository: StoryRepository,
-    private val storyDatabase: StoryDatabase
 ) : ViewModel() {
 
     fun saveAuthToken(token: String) {
@@ -30,7 +29,6 @@ class MainViewModel @Inject constructor(
 
     fun deleteAuthToken() {
         viewModelScope.launch {
-            storyDatabase.remoteKeysDao().deleteAllRemoteKeys()
             authRepository.deleteAuthToken()
 
         }
